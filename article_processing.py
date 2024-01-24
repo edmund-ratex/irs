@@ -49,7 +49,7 @@ def start():
             
             
     except Exception as e:
-        errMsg = f"发生错误:{e}"
+        errMsg = f":{e}"
         print(errMsg)
         log_err(errMsg)
         input()
