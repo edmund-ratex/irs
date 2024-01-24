@@ -153,7 +153,7 @@ def start():
                         count += 1
                 except Exception as e:
                     index -= 1
-                    errMsg = f"错误err_msg:{e}, index:{index}, file:{file}"
+                    errMsg = f"err_msg:{e}, index:{index}, file:{file}"
                     print(errMsg)
                     log_err(errMsg)
                     time.sleep(1)
