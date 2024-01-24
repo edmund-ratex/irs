@@ -148,4 +148,4 @@ def get_rubydex_glossary():
 
 
 start()
-input("请按回车键退出")
+input("")
