@@ -21,11 +21,11 @@ class Rest:
     def http_request(self, method, path, times=5, **kwargs):
         """
         发起请求
-        @param method: 方法
-        @param path: 目录
-        @param times: 失败重试次数
-        @param kwargs: 参数
-        @return: 成功 True，res.json()，失败 False, res.text
+        @param method: 
+        @param path: 
+        @param times: 
+        @param kwargs: 
+        @return:  True，res.json()， False, res.text
         """
         data = {key: value for key, value in kwargs.items() if value is not None}
         try:
