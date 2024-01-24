@@ -182,7 +182,7 @@ def generate_article(local_now_date,nDays, caption_dir, captionTypeInfo,specifie
                     time.sleep(120)
         captionTypeInfo.csvHandler(csvPath)        
     except Exception as e:
-        errMsg = f"发生错误:{e}"
+        errMsg = f":{e}"
         log_err(errMsg)
 
 def genSlug(title):
@@ -255,11 +255,11 @@ def split_article(article_text):
     section = ''
     section_length = 0
 
-    # 分割文章为段落
+    # 
     paragraphs = article_text.split('\n\n')
 
     for para in paragraphs:
-        # 检查段落是否为小标题（Heading），如果是，则将当前部分添加到sections列表中，并创建新部分
+        #
         if is_heading(para):
             if section_length > 0:
                 sections.append(section)
@@ -267,7 +267,7 @@ def split_article(article_text):
             section_length = len(section)
         else:
             para_length = len(para)
-            # 如果添加该段落后，部分长度超过3500个字符，则将当前部分添加到sections列表中，并创建新部分
+            # 
             if section_length + para_length > 3500:
                 sections.append(section)
                 section = para + '\n'
@@ -276,7 +276,7 @@ def split_article(article_text):
                 section += para + '\n'
                 section_length += para_length + 1
 
-    # 将最后一个部分添加到sections列表中
+    # 
     if section_length > 0:
         sections.append(section)
 
@@ -303,7 +303,7 @@ def read_config(dirName):
 
 
 def genFullPrompt(promptTemplate, keywordArr, removeDoubleQuotes):
-    # 一对一替换
+    # 
     for keyword in keywordArr:
         if removeDoubleQuotes:
             promptTemplate = promptTemplate.replace('""', f'{keyword}', 1)
