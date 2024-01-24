@@ -33,12 +33,12 @@ def read_csv(csv_path):
     with open(csv_path, newline='', encoding='utf-8') as csvfile:
         reader = csv.reader(csvfile, delimiter=',', quotechar='"')
 
-        # 初始化结果数组
+        # 
         result = []
 
-        # 遍历CSV文件中的每一行数据
+        # 
         for row in reader:
-            # 将当前行数据添加到结果数组中
+            # 
             result.append(row)
 
     return result
@@ -70,7 +70,7 @@ def csv2json(csv_path):
         return jsonPath
 
     except Exception as e:
-        errMsg = f"csv2json 错误:{e}"
+        errMsg = f"csv2json :{e}"
         logger.error(errMsg)
 
 
