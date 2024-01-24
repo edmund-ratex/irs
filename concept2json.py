@@ -71,7 +71,7 @@ def read_config(dirName):
 
 
 def genFullPrompt(promptTemplate, keywordArr, removeDoubleQuotes):
-    # 一对一替换
+    # 
     for keyword in keywordArr:
         if removeDoubleQuotes:
             promptTemplate = promptTemplate.replace('""', f'{keyword}', 1)
@@ -101,12 +101,12 @@ def read_csv():
     with open(concept_csv, newline='',encoding='utf-8') as csvfile:        
         reader = csv.reader(csvfile, delimiter=',', quotechar='"')
         
-        # 初始化结果数组
+        # 
         result = []
         
-        # 遍历CSV文件中的每一行数据
+        # 
         for row in reader:
-            # 将当前行数据添加到结果数组中
+            # 
             result.append(row)
             
     return result
@@ -149,4 +149,4 @@ def get_rubydex_glossary():
 
 
 start()
-input("请按回车键退出")
+input("")
