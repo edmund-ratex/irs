@@ -64,3 +64,4 @@ def get_video_urls(videoDurationStr, channel_id, publishedBefore, publishedAfter
         video_url = f"https://www.youtube.com/watch?v={video_id}"
         video_urls.append(video_url)
     return video_urls
+
