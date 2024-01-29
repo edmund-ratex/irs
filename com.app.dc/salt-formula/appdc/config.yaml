@@ -1,0 +1,11 @@
+appdc:
+  envs:
+    DEV.appdc:
+      test: false
+    QA.appdc:
+      test: false   
+    PRD.appdc:
+      test: false
+    UAT.appdc:
+      test: false
+ 
