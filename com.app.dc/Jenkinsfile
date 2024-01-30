@@ -12,7 +12,7 @@ def jobInfo = [
         mode: "deploy",
         options: "-DskipTests" // 
     ],
- packageInfo: [ //打包信息
+ packageInfo: [ //
         name: "appdc", //
         packageName: "appdc" //
     deployInfo: [ //
