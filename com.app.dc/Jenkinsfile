@@ -1,5 +1,4 @@
-library 'pipe@master' //引用此工程，格式为<工程名>@<branchName>。此工程会配置在Jenkins中，plib为Jenkins中配置的工程名，master为branch或tag名。
-
+library 'pipe@master' //
 def preCommands = "echo 1"
 def postCommands = "echo 2"
 
@@ -8,48 +7,47 @@ def jobInfo = [
     projName: "gateway",
     name: "appdc",
     appName: "appdc",
-    buildInfo: [ //编译信息
-        pom: "pom.xml", //指定工程pom文件位置和名称
+    buildInfo: [ //
+        pom: "pom.xml", //
         mode: "deploy",
-        options: "-DskipTests" // 指定mvn指令的额外参数
+        options: "-DskipTests" // 
     ],
  packageInfo: [ //打包信息
-        name: "appdc", //用以打包的目录名
-        packageName: "appdc" //服务打包后的包名，包会以tar.gz结尾。名称中不需包含扩展名。
-    ],
-    deployInfo: [ //部署信
-        DEV:[ //'master'及其它分支会被部署到DEV环境，允许包含多个部署信息
+        name: "appdc", //
+        packageName: "appdc" //
+    deployInfo: [ //
+        DEV:[ //'master'
             [
                 hostName: "dev-java-gateway01",
                 packageFile: "*-DEV*.tar.gz",
                 targetFolder: "/tmp",
-                preCommands: "bash pwd", //部署前需执行的指令
-                postCommands: postCommands //部署后需执行的指令
+                preCommands: "bash pwd", //
+                postCommands: postCommands //
             ]
         ],
-        QA:[ //'rel_'开头的分支会被部署到QA环境，允许包含多个部署信息
+        QA:[ //'rel_'
             [
-                hostName: "dev-192.168.168.7", //在Jenkins中配置的主机名
-                packageFile: "*-QA*.tar.gz", //需要部署的包名，可以包含通配符
-                targetFolder: ".", //部署到指定的目录
-                preCommands: preCommands, //部署前需执行的指令
-                postCommands: postCommands //部署后需执行的指令
+                hostName: "dev-192.168.168.7", //
+                packageFile: "*-QA*.tar.gz", //
+                targetFolder: ".", //
+                preCommands: preCommands, //
+                postCommands: postCommands //
             ]
         ] 
     ],
      releaseInfo: [ 
-	 serverName: "artifactory", //发布目标，必须是在Jenkins中配置好的Artifactory服务器
+	 serverName: "artifactory", //
       packages: [
-		[ //发布信息
-        fileName: "*-PRD*.tar.gz", //需要发布的文件名，可以使用通配符
-        serverName: "artifactory", //发布目标，必须是在Jenkins中配置好的Artifactory服务器
-        repoName: "generic-release", //仓库名称
-        projectName: "erp", //项目名称
-        packageName: "custodianerp", //服务名称
-        props: "proj=erp" //包标签，用来在Artifactory中标记包
+		[ //
+        fileName: "*-PRD*.tar.gz", //
+        serverName: "artifactory", //
+        repoName: "generic-release", //
+        projectName: "erp", //
+        packageName: "custodianerp", //
+        props: "proj=erp" //
     ] 
       ]
     ]
 ]
 
-building.buildJavaService(jobInfo) //根据给定的信息执行Pipeline
+building.buildJavaService(jobInfo) //
